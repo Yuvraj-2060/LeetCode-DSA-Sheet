@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Main {
+class ChocoLateDistribution {
 	static int findMinDiff(int arr[], int n, int m)
 	{
 	    if(n==0 || m==0)
