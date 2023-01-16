@@ -71,3 +71,11 @@ class TwoSum {
         return new int[] {};
     }
 }
+//but this code will not work for this below input :
+Input
+[3,2,4]
+6
+Output
+[0,2]
+Expected
+[1,2]
