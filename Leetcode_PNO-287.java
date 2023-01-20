@@ -34,3 +34,25 @@ class Solution {
     }
 }
 
+------------------------------------------------------------------------------------------------
+    
+# Approach no:3
+    
+    
+import java.util.* ;
+import java.io.*; 
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution{
+    public static int findDuplicate(ArrayList<Integer> arr, int n){
+        // Write your code here.
+        Collections.sort(arr);
+        for(int i=0;i<arr.size();i++){
+            if(arr.get(i)==arr.get(i+1)){
+                return arr.get(i);
+            }
+        }return -1;
+    }
+}
