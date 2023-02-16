@@ -1,0 +1,92 @@
+//Approach-1
+
+
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<Character>();
+	for (char c : s.toCharArray()) {
+		if (c == '(')
+			stack.push(')');
+		else if (c == '{')
+			stack.push('}');
+		else if (c == '[')
+			stack.push(']');
+		else if (stack.isEmpty() || stack.pop() != c)
+			return false;
+	}
+	return stack.isEmpty();
+    }
+}
+
+//Approach-2
+
+class Solution {
+    public boolean isValid(String s) {
+       Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < s.length(); i++) {
+            char a = s.charAt(i);
+            if(a == '(' || a == '[' || a == '{') stack.push(a);
+            else if(stack.empty()) return false;
+            else if(a == ')' && stack.pop() != '(') return false;
+            else if(a == ']' && stack.pop() != '[') return false;
+            else if(a == '}' && stack.pop() != '{') return false;
+        }
+        return stack.empty();
+    }
+}
+
+//Approach-3
+
+class Solution {
+    public boolean isValid(String s) {
+        char[] chars = s.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        for (char element : chars) {
+            if (element == '(' || element == '[' || element == '{') {
+                stack.push(element);
+                continue;
+            } else if (stack.empty()) {
+                return false;
+            }
+            char top = stack.pop();
+            if (top == '(' && element != ')') {
+                return false;
+            } else if (top == '[' && element != ']') {
+                return false;
+            } else if (top == '{' && element != '}') {
+                return false;
+            }
+        }
+        return stack.empty();
+    }
+}
+
+// Approach-4
+
+class Solution {
+    public boolean isValid(String s) {
+       HashMap map = new HashMap();
+        map.put('(',')');
+        map.put('[',']');
+        map.put('{','}');
+        Stack<Character> stack = new Stack<>();
+
+        for(int i = 0;i < s.length();i++){
+            char c = s.charAt(i);
+            if(c == '(' || c == '{' || c == '['){
+                stack.push(c);
+            }else{
+                if(stack.isEmpty()){
+                    return false;
+                }
+                if(map.get(stack.pop()).equals(c)){
+                    continue;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    
+    }
+}
