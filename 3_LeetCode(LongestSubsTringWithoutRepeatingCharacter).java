@@ -52,3 +52,29 @@ class Solution {
         return res;
     }
 }
+
+
+//Approach 4: Using basic string functions
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length()==0)
+            return 0;
+        char ch=s.charAt(0);
+        String ans="";
+        ans=ans+ch;
+        int max=1;
+        for(int i=1;i<s.length();i++){
+            ch=s.charAt(i);
+            int index=ans.indexOf(ch);
+            if(index == -1){
+                ans=ans+ch;
+                max=Math.max(max,ans.length());
+            }
+            else{
+                ans=ans.substring(index+1)+ch;       //if s="dvdf", and when we encounter 2nd d, we need the new ans as "vd" and not just "d"
+            }
+        }
+        return max;
+    }
+}
+//TC: O(n)
