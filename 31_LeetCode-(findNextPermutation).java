@@ -59,7 +59,7 @@ class Solution {
         if(A == null || n <= 1) 
             return;
         
-        for(int i=n-2;i>=0;i--){
+        for(int i=n-2;i>=0;i--){            // step 1: find the dip
             if(A[i]<A[i+1]){
                 ind=i;  
                 break;
@@ -71,13 +71,13 @@ class Solution {
             return;    
         }
             
-        for(int i=n-1;i>=ind;i--){
+        for(int i=n-1;i>=ind;i--){          // step 2: swap A[ind] with immediate next greater element
             if(A[i]>A[ind]){
                 swap(A,i,ind);
                 break;
             }
         }
-        reverse(A,ind+1,n-1);
+        reverse(A,ind+1,n-1);              // step 3: reverse the remaining elements after index ind.
     }
     
 }
