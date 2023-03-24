@@ -1,4 +1,4 @@
-// Approach : 1
+// Approach : 1     [ Time Complexity: O(N*N) to linearly iterate and put it into some other matrix || Space Complexity: O(N*N) to copy it into some other matrix.] 
 
 class Solution {
     public void rotate(int[][] matrix) {
@@ -31,7 +31,7 @@ class Solution {
 class Solution {
     public void rotate(int[][] matrix) {
         
-        for(int i=0;i<matrix.length;i++){
+        for(int i=0;i<matrix.length;i++){                   // step 1: tranpose the matrix
             for(int j=i;j<matrix[0].length;j++){
                 int temp = 0;
                 temp = matrix[i][j];
@@ -39,7 +39,7 @@ class Solution {
                 matrix[j][i] = temp;
             }
         }
-        for(int i=0;i<matrix.length;i++){
+        for(int i=0;i<matrix.length;i++){                  // step 2: reverse the matrix
             for(int j=0;j<matrix.length/2;j++){
                 int temp = 0;
                 temp = matrix[i][j];
