@@ -32,7 +32,7 @@ class Solution {
     public void rotate(int[][] matrix) {
         
         for(int i=0;i<matrix.length;i++){                   // step 1: tranpose the matrix
-            for(int j=i;j<matrix[0].length;j++){
+            for(int j=i;j<matrix[0].length;j++){        // OR  for(int j=0;j<i;j++){
                 int temp = 0;
                 temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
