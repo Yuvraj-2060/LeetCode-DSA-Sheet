@@ -1,18 +1,16 @@
 // Approach-1   ****************** Time Complexity: O(N2)     Space Complexity: O(1) ************************************
 
-public static int subarraysXor(ArrayList<Integer> arr, int x) {
-		int cnt=0;
-
-		for(int i=0;i<arr.size();i++){
-			int curr_xor=0;
-			for(int j=i;j<arr.size();j++){
-				curr_xor^=arr.get(j);
-				if(curr_xor==x)
-					cnt++;
-			}
-		}
-		return cnt;
-	}
+public int solve(int[] A, int B) {
+        int c=0;
+        for(int i=0;i<A.length;i++){
+            int current_xor = 0;
+            for(int j=i;j<A.length;j++){
+                current_xor^=A[j];
+                if(current_xor==B) c++;
+            }
+        }
+        return c;
+}
 
 // Approach-2   ****************** Time Complexity: O(N)     Space Complexity: O(N) ************************************
 
